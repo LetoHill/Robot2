@@ -10,9 +10,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveSubsystem extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  private final PWMTalonSRX leftMotor1 = new PWMTalonSRX(1);
-  private final PWMTalonSRX rightMotor1 = new PWMTalonSRX(2);
-  private final PWMTalonSRX leftMotor2 = new PWMTalonSRX(1);
+  private final PWMTalonSRX leftMotor1 = new PWMTalonSRX(3);
+  private final PWMTalonSRX rightMotor1 = new PWMTalonSRX(1);
+  private final PWMTalonSRX leftMotor2 = new PWMTalonSRX(4);
   private final PWMTalonSRX rightMotor2 = new PWMTalonSRX(2);
   
   public DriveSubsystem() {
@@ -23,6 +23,16 @@ public class DriveSubsystem extends SubsystemBase {
     rightMotor1.set(right1);
     leftMotor2.set(left1);
     rightMotor2.set(right1);
+  }
+  public void arcadeDrive(double y, double x){
+    double left = y+x;
+    double right = y-x;
+     leftMotor1.set(left);
+    rightMotor1.set(right);
+    leftMotor2.set(left);
+    rightMotor2.set(right);
+    
+
   }
   /**
    * Example command factory method.

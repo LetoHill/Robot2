@@ -8,6 +8,7 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.DriveSubsystem;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -24,14 +25,15 @@ public class RobotContainer {
   private final DriveSubsystem m_exampleSubsystem = new DriveSubsystem();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final CommandXboxController m_driverController =
-      new CommandXboxController(OperatorConstants.kDriverControllerPort);
+  //private final CommandXboxController m_driverController =
+      //new CommandXboxController(OperatorConstants.kDriverControllerPort);
+  private final Joystick contoller = new Joystick(0);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
-    m_exampleSubsystem.setDefaultCommand(new RunCommand(() -> m_exampleSubsystem.tankDrive(m_driverController.getLeftY(), m_driverController.getRightY()), m_exampleSubsystem));
+    m_exampleSubsystem.setDefaultCommand(new RunCommand(() -> m_exampleSubsystem.tankDrive(Joystick.getRawAxis(0), Joystick.getRawAxis(1)), m_exampleSubsystem));
   }
 
   /**
@@ -50,7 +52,7 @@ public class RobotContainer {
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
-    m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
+    // Joystick.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
   }
 
   /**
