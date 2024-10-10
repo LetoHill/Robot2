@@ -33,7 +33,7 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
-    m_exampleSubsystem.setDefaultCommand(new RunCommand(() -> m_exampleSubsystem.tankDrive(contoller.getRawAxis(0), contoller.getRawAxis(1)), m_exampleSubsystem));
+    m_exampleSubsystem.setDefaultCommand(new RunCommand(() -> m_exampleSubsystem.arcadeDrive(contoller.getRawAxis(0), contoller.getRawAxis(1)), m_exampleSubsystem));
   }
 
   /**
