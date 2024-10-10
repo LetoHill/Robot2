@@ -4,16 +4,15 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.motorcontrol.PWMTalonSRX;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveSubsystem extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  private final PWMTalonSRX leftMotor1 = new PWMTalonSRX(3);
-  private final PWMTalonSRX rightMotor1 = new PWMTalonSRX(1);
-  private final PWMTalonSRX leftMotor2 = new PWMTalonSRX(4);
-  private final PWMTalonSRX rightMotor2 = new PWMTalonSRX(2);
+  private final WPI_TalonSRX leftMotor1 = new WPI_TalonSRX(3);
+  private final WPI_TalonSRX rightMotor1 = new WPI_TalonSRX(1);
+  private final WPI_TalonSRX leftMotor2 = new WPI_TalonSRX(4);
+  private final WPI_TalonSRX rightMotor2 = new WPI_TalonSRX(2);
   
   public DriveSubsystem() {
     leftMotor1.setInverted(true);
