@@ -5,7 +5,9 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.kauailabs.navx.frc.AHRS;
 
+import edu.wpi.first.wpilibj.SPI.Port;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -15,6 +17,7 @@ public class DriveSubsystem extends SubsystemBase {
   private final WPI_TalonSRX rightMotor1 = new WPI_TalonSRX(1);
   private final WPI_TalonSRX leftMotor2 = new WPI_TalonSRX(4);
   private final WPI_TalonSRX rightMotor2 = new WPI_TalonSRX(2);
+  private AHRS navX = new AHRS(Port.kMXP);
   
   public DriveSubsystem() {
     leftMotor1.setInverted(true);
@@ -47,6 +50,10 @@ public class DriveSubsystem extends SubsystemBase {
         () -> {
           /* one-time action goes here */
         });
+  }
+  public double getAngle(){
+    return navX.getAngle();
+    
   }
 
   /**
