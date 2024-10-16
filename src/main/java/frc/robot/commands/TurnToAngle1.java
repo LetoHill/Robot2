@@ -18,6 +18,7 @@ public class TurnToAngle1 extends Command{
     @Override
     public void execute(){
         chassis.arcadeDrive(0,0.4);
+        System.out.println(chassis.getAngle());
     }
 
     @Override
